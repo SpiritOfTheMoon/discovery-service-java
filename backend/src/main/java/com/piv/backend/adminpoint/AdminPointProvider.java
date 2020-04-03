@@ -1,27 +1,28 @@
-package com.piv.backend.config;
+package com.piv.backend.adminpoint;
 
-import com.piv.backend.adminpoint.AdminPointSchema;
 import graphql.GraphQL;
 import graphql.schema.GraphQLSchema;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 
 @Component
-public class GraphQLProvider {
-
-    private AdminPointSchema adminPointSchema = new AdminPointSchema();
+public class AdminPointProvider {
 
     private GraphQL graphQL;
 
+    @Autowired
+    GraphQLSchema adminPointGraphQLSchema;
+
     @PostConstruct
     public void init() {
-        GraphQLSchema graphQLSchema = adminPointSchema.getGraphQLSchema();
-        this.graphQL = GraphQL.newGraphQL(graphQLSchema).build();
+        this.graphQL = GraphQL.newGraphQL(adminPointGraphQLSchema).build();
     }
     @Bean
     public GraphQL graphQL() {
         return graphQL;
     }
+
 }
