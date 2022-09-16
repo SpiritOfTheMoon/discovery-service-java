@@ -15,7 +15,7 @@
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-        <graphql.version>14.0</graphql.version>
+        <graphql.version>17.4</graphql.version>
         <graphql-spring-boot.version>1.0</graphql-spring-boot.version>
         <guava.version>28.2-jre</guava.version>
         <spring-boot.version>2.2.6.RELEASE</spring-boot.version>
